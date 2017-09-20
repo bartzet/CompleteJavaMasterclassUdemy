@@ -5,16 +5,32 @@ package com.bart;
  */
 public class OpelAstra extends Car{
 
-    private int frontSpoiler;
-    private int backSpoiler;
+   private int roadServiceMonths;
 
-    public OpelAstra(String color, String size, int windows, int gearShoftKnob, int frontSpoiler, int backSpoiler) {
-        super(color, size, windows, 4, 1, gearShoftKnob);
-        this.frontSpoiler = frontSpoiler;
-        this.backSpoiler = backSpoiler;
+    public OpelAstra(int roadServiceMonths) {
+        super("silver", "4WD", 8, 5, 1, 6, false);
+        this.roadServiceMonths = roadServiceMonths;
     }
 
-    public void drift() {
-        super.move(50);
+    public void accelerate(int rate) {
+        int newVelocity = getCurrentVelocity() + rate;
+
+        if(newVelocity == 0) {
+            stop();
+            changeGear(1);
+        } else if (newVelocity > 0 && newVelocity <= 10) {
+            changeGear(1);
+        } else if (newVelocity > 10 && newVelocity <= 20) {
+            changeGear(2);
+        } else if (newVelocity > 20 && newVelocity <= 30) {
+            changeGear(3);
+        } else {
+            changeGear(4);
+        }
+
+        if (newVelocity > 0) {
+            changeVelocity(newVelocity, getCurrentDirection());
+        }
     }
 }
+

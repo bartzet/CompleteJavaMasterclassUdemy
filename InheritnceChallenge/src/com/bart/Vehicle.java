@@ -28,6 +28,29 @@ public class Vehicle {
         currentDirection = direction;
 
         System.out.println("Vehicle.move(): Moving at: " + currentVelocity + " in direction " + currentDirection);
+    }
 
+    public void stop() {
+        this.currentVelocity = 0;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public int getWindows() {
+        return windows;
+    }
+
+    public int getCurrentVelocity() {
+        return currentVelocity;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
     }
 }
