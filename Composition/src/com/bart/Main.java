@@ -14,11 +14,7 @@ public class Main {
 
         PC pc = new PC(theCase, monitor, motherboard);
 
-
-        pc.getMonitor().drawPixelAt(1223, 766, "Blue");
-        pc.getMotherboard().loadProgram("Windows XP");
-        pc.getTheCase().pressPowerButton();
-
+        pc.powerUp();
 
 
     }
