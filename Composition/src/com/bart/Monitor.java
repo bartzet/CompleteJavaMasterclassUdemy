@@ -15,4 +15,24 @@ public class Monitor {
         this.size = size;
         this.nativeResolution = nativeResolution;
     }
+
+    public void drawPixelAt(int width, int height, String color) {
+        System.out.println("I draw pixel at " + width + ", " + height + " with color " + color);
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public String getManufacture() {
+        return manufacture;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public Resolution getNativeResolution() {
+        return nativeResolution;
+    }
 }
