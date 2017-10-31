@@ -68,7 +68,6 @@ public class BaseBurger {
             hamburgerPrice += this.baconPrice;
             System.out.println("Added " + this.bacon + " for an extra " + this.baconPrice);
         }
-
         return hamburgerPrice;
     }
 }
