@@ -1,5 +1,6 @@
 package com.bart;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +10,8 @@ public class Main {
     public static void main(String[] args) {
 
         int[] myIntegers = getIntegers(5);
-
+        int[] sorted = sortIntegets(myIntegers);
+        printArray(sorted);
 
         printArray(myIntegers);
     }
@@ -34,13 +36,15 @@ public class Main {
 
     //copy elemetnes from other array and sort them
     public static int[] sortIntegets(int[] array) {
-        int[] sortedArray = new int[array.length];
-        for (int i=0; i<array.length; i++) {
-            sortedArray[i] = array[i];
-        }
+//        int[] sortedArray = new int[array.length];
+//        for (int i=0; i<array.length; i++) {
+//            sortedArray[i] = array[i];
+//    }
+        //Alternative method ... doesn't really work as expected
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+
         boolean flag = true;
         int temp;
-
         while (flag) {
             flag = false;
             for (int i=0; i<sortedArray.length-1; i++) {
