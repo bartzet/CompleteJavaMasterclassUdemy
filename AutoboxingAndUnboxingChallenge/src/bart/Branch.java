@@ -2,17 +2,13 @@ package bart;
 
 import java.util.ArrayList;
 
-/**
- * Created by Dell on 2017-11-27.
- */
 public class Branch {
-
     private String name;
-    private ArrayList<Customers> customers;
+    private ArrayList<Customer> customers;
 
     public Branch(String name) {
         this.name = name;
-        this.customers = new ArrayList<Customers>();
+        this.customers = new ArrayList<Customer>();
     }
 
     public String getName() {
@@ -29,10 +25,36 @@ public class Branch {
 
     public boolean addCustomerTransaction (String customerName, double amount) {
         Customers existingCustomer = findCustomer(customerName);
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public boolean newCustomer(String customerName, double initialAmount) {
+        if (findCustomer(customerName) == null) {
+            this.customers.add(new Customer(customerName, initialAmount));
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean addCustomerTransaction(String customerName, double amount) {
+        Customer existingCustomer = findCustomer(customerName);
         if (existingCustomer != null) {
             existingCustomer.addTransaction(amount);
             return true;
         }
         return false;
+    }
+
+    private Customer findCustomer(String customerName) {
+        for (int i = 0; i < this.customers.size(); i++) {
+            Customer checkedCustomer = this.customers.get(i);
+            if (checkedCustomer.getName().equals(customerName)) {
+                return checkedCustomer;
+            }
+        }
+        return null;
     }
 }
